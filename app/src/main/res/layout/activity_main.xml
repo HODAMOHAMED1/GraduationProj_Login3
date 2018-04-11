@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hodaco.graduationproj_login.View.MainActivity"
+    android:orientation="vertical"
+    android:background="#ADD767">
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Type Your Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="16dp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Type Your Password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        android:layout_marginRight="17dp"
+        android:layout_marginLeft="14dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="141dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="44dp"
+        android:layout_marginEnd="121dp"
+        android:layout_marginStart="122dp"
+        android:text="Login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginRight="121dp"
+        android:layout_marginLeft="122dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="310dp"
+        android:layout_height="208dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_marginRight="43dp"
+        android:layout_marginLeft="31dp" />
+</android.support.constraint.ConstraintLayout>
