@@ -112,4 +112,3 @@ public class MainActivity extends AppCompatActivity implements Login_Contract.vi
         return builder;
     }
 }
-//ADD767
