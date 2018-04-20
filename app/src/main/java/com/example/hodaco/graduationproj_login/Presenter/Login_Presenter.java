@@ -20,14 +20,24 @@ public class Login_Presenter  implements Login_Contract.presenter{
     }
     void initPresenter()
     {
-        pmodel=new Login_Model();
+        pmodel=new Login_Model(this);
         pview.initView();
     }
 
     @Override
     public void onClick(View view) {
-        boolean b= pmodel.check(pview.getEmail().toString(),pview.getPassword().toString());
+        pmodel.check(pview.getEmail().toString(),pview.getPassword().toString());
         Log.i("hoda","presenter");
-        pview.result(b);
+
+    }
+    @Override
+    public void res(boolean b) {
+        if (b==true) {
+            pview.success();
+        }
+        else
+        {
+            pview.failure();
+        }
     }
 }

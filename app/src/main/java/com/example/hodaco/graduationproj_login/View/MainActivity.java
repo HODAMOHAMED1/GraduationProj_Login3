@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements Login_Contract.vi
             }
         });
     }
+
     @Override
     public String getEmail() {
         return email.getText().toString();
@@ -73,18 +74,19 @@ public class MainActivity extends AppCompatActivity implements Login_Contract.vi
     }
 
     @Override
-    public void result(boolean b) {
-        if (b == true) {
+    public void success() {
             Log.i("hoda","true");
-            Toast.makeText(MainActivity.this, "onsuccress" + getEmail(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, getResources().getString(R.string.success) + getEmail(), Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
             startActivity(intent);
-        } else {
-            Log.i("hoda","false");
-            Toast.makeText(MainActivity.this, "Wrong", Toast.LENGTH_SHORT).show();
-        }
-
     }
+
+    @Override
+    public void failure() {
+        Log.i("hoda","false");
+        Toast.makeText(MainActivity.this, getResources().getString(R.string.wrong), Toast.LENGTH_SHORT).show();
+    }
+
     public boolean isConnect (Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netinfo = cm.getActiveNetworkInfo();
@@ -101,9 +103,9 @@ public class MainActivity extends AppCompatActivity implements Login_Contract.vi
     public AlertDialog.Builder buildDialog(Context c)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(c);
-        builder.setTitle("No Internet Connection");
-        builder.setMessage("You need to have Mobile Data or wifi to access this.press ok to Exit");
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setTitle(getResources().getString(R.string.message1));
+        builder.setMessage(getResources().getString(R.string.message2));
+        builder.setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 finish();

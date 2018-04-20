@@ -9,17 +9,19 @@ import android.view.View;
 public interface Login_Contract {
     interface model
     {
-        boolean check(String email,String Password);
+        void check(String email,String Password);
     }
     interface view
     {
         void initView();
         String getEmail();
         String getPassword();
-        void result(boolean b);
+        void success();
+        void failure();
     }
     interface presenter
     {
         void onClick(View view);
+        void res (boolean b);
     }
 }

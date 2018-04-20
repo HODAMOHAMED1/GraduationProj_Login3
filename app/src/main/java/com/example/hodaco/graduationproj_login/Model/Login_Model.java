@@ -17,25 +17,32 @@ import retrofit2.Response;
  */
 
 public class Login_Model implements Login_Contract.model{
-   boolean result;
+    private Login_Contract.presenter presenter;
+    public Login_Model( Login_Contract.presenter pres) {
+        this.presenter=pres;
+    }
+
+    boolean result;
     @Override
-    public boolean check(String email, String password) {
+    public void check(String email, String password) {
         Service ApiService = ApiUtils.getService();
         PostReq user = new PostReq();
         user.setEmail(email);
         user.setPassword(password);
+
         ApiService.Login(user).enqueue(new Callback<PostRes>() {
             @Override
             public void onResponse(Call<PostRes> call, Response<PostRes> response) {
                 result=true;
+                presenter.res(result);
                 Log.i("hoda","hiiiii");
             }
             @Override
             public void onFailure(Call<PostRes> call, Throwable t) {
                 Log.i("hoda","noooooooo");
               result =false;
+                presenter.res(result);
             }
         });
-        return result;
     }
 }
