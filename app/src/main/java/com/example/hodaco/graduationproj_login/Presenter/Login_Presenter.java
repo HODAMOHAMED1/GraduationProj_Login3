@@ -28,7 +28,6 @@ public class Login_Presenter  implements Login_Contract.presenter{
     public void onClick(View view) {
         pmodel.check(pview.getEmail().toString(),pview.getPassword().toString());
         Log.i("hoda","presenter");
-
     }
     @Override
     public void res(boolean b) {

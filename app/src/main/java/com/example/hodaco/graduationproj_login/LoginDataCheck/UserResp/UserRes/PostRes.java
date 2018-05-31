@@ -11,10 +11,21 @@ public class PostRes {
     private Boolean status;
     @SerializedName("error")
     @Expose
-    private Integer error;
+    private String error;
     @SerializedName("message")
     @Expose
     private String message;
+    @SerializedName("id")
+    @Expose
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Boolean getStatus() {
         return status;
@@ -24,11 +35,11 @@ public class PostRes {
         this.status = status;
     }
 
-    public Integer getError() {
+    public String getError() {
         return error;
     }
 
-    public void setError(Integer error) {
+    public void setError(String error) {
         this.error = error;
     }
 

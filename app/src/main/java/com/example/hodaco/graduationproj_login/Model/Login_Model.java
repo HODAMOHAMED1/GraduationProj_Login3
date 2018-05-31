@@ -8,6 +8,9 @@ import com.example.hodaco.graduationproj_login.LoginDataCheck.UserResp.Remote.Se
 import com.example.hodaco.graduationproj_login.LoginDataCheck.UserResp.UserRes.PostReq;
 import com.example.hodaco.graduationproj_login.LoginDataCheck.UserResp.UserRes.PostRes;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,14 +29,15 @@ public class Login_Model implements Login_Contract.model{
     @Override
     public void check(String email, String password) {
         Service ApiService = ApiUtils.getService();
-        PostReq user = new PostReq();
-        user.setEmail(email);
-        user.setPassword(password);
-
-        ApiService.Login(user).enqueue(new Callback<PostRes>() {
+        PostReq req = new PostReq();
+        req.setEmail(email);
+        req.setPassword(password);
+        ApiService.Login(req).enqueue(new Callback<PostRes>() {
             @Override
             public void onResponse(Call<PostRes> call, Response<PostRes> response) {
                 result=true;
+                Log.i("resulttttt",response.body().getMessage());
+                Log.i("resultttttn","id="+ String.valueOf(response.body().getId()));
                 presenter.res(result);
                 Log.i("hoda","hiiiii");
             }
@@ -41,6 +45,8 @@ public class Login_Model implements Login_Contract.model{
             public void onFailure(Call<PostRes> call, Throwable t) {
                 Log.i("hoda","noooooooo");
               result =false;
+                System.out.print(t.getMessage());
+                System.out.print(call.request().body());
                 presenter.res(result);
             }
         });

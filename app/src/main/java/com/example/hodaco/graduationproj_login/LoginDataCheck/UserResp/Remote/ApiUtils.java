@@ -5,7 +5,7 @@ package com.example.hodaco.graduationproj_login.LoginDataCheck.UserResp.Remote;
  */
 
 public class ApiUtils {
-    public static final String BASE_URL = "http://polls.apiblueprint.org/Tamini/";
+    public static final String BASE_URL = "http://192.168.1.4:8084/MedicalInsuranceSystem/api/version1/user/";
 
     public static Service getService() {
 
